@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'roboto', sans-serif;
+}
+
+.floral-background {
+    width: 480px;
+    height: 650px;
+}
+.background-image{
+    width: 600px;
+    height: 800px;
+    padding: 0;
+}
+
+.form-container {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.form-container-3{
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 24px;
+}
+.logo-image {
+    width: 50%;
+}
+
+.greeting-bold-text {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 21px;
+    color: #505050;
+    margin-top: 30px;
+}
+.greeting-italic-text{
+    font-weight: 500;
+    font-size: 28px;
+    font-style: italic;
+    line-height: 21px;
+    color: #0077C8;
+    margin-top: 30px;
+}
+
+.info-tagline {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #505050;
+}
+
+.form-content {
+    margin-top: 22px;
+    align-items: center;
+    justify-content: center;
+}
+input[type=text] {
+   border:0;
+}
+.input-group-text{
+    background: #F7F6F4;
+    border: none;
+    border-radius: 6px;
+}
+.input-form {
+    width: 260px;
+    height: 50px;
+    background: #F7F6F4;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #888787;
+    padding: 12px;
+  ;
+}
+.input-form:focus {
+    outline:none !important 
+}
+.submit-btn{
+    margin-top: 16px;
+    background-color: #0077C8;
+    width: 306px;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+.password-reset{
+  margin-top: 12px;
+}
+.password-reset-link{
+    font-size: 15px;
+    color: #0077C8;
+    text-decoration: none;
+}
+.password-reset-tag-text{
+ font-size: 15px;
+color: #505050;
+ margin-left: 4px;
+}
+
+
+/* Mobile styling */
+@media only screen and (max-width: 768px) {
+.floral-background, .background-image{
+   display: none;
+}
+}
