@@ -16,3 +16,4 @@ class d_general_details(models.Model):
     doctor_picture = models.ImageField('Passport', upload_to='static/images', null=True, blank=True, default='static/profile-icon.svg')
     staff_id = models.IntegerField('StaffNumber',)
     d_department = models.CharField('Department', choices= dept, max_length=75)
+    #password = models.CharField('Password', max_length=16)

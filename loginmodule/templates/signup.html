@@ -1,19 +1,142 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinisol</title>
+    <title>Clinosol</title>
+    <!--boostrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--Google font Roboto link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!--css style link-->
+    <link rel="stylesheet" type="text/css" href="/static/css/signupStyle.css" />
 </head>
+
 <body>
-    {%csrf_token%}
-    {{varerr}}
-    {{varerr1}}
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
+    <section class="main">
+        <div class="container">
+            <div class="form-container">
+                <div class="info text-center">
+                    <div class="logo">
+                        <img src="/static/images/1.png" alt="logo" class="logo-image">
+                    </div>
+                    <h3 class="greeting-bold-text">Create An Account</h3>
+                    <p class="info-tagline">Ender The Details Below</p>
+                </div>
+
+                <form class="form-content" action="" method="post" enctype="multipart/form-data">
+                    {{varerr}}
+                    {{varerr1}}
+                    {{varerr2}}
+                    {% load widget_tweaks %}
+                    {% csrf_token %}
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                                <label for="name" class="lblinput">First Name</label>
+                                <div>{{ form.firstname|add_class:"input-form"|attr:"placeholder:Enter First Name" }}</div>
+                            </div>
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Last Name</label>
+                                <div>{{ form.lastname|add_class:"input-form"|attr:"placeholder:Enter Last Name" }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Other Names</label>
+                                <div>{{ form.other_names|add_class:"input-form"|attr:"placeholder:Enter Other Names" }}</div>
+                            </div>
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Phone Number</label>
+                                <div>{{ form.phone_number|add_class:"input-form"|attr:"placeholder:0XXX XXX XXXX" }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Date of Birth</label>
+                                <div>{{ form.age|add_class:"input-form" }}</div>
+                            </div>
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Gender</label>
+                                <div>{{ form.gender|add_class:"input-form" }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Height</label>
+                                <div>{{ form.height|add_class:"input-form"|attr:"placeholder:Height In cm" }}</div>
+                            </div>
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Weight</label>
+                                <div>{{ form.weight|add_class:"input-form"|attr:"placeholder:Weight In kgs" }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                            <label for="name" class="lblinput">Address</label>
+                            <div>{{ form.address|add_class:"input-form input-form-lg"|attr:"placeholder:Enter Home Address" }}</div>
+                            <!-- <input type="text" placeholder="Enter Home Address" class="input-form input-form-lg"> -->
+                            </div>
+                            </div>
+                        </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Blood Group</label>
+                                <div>{{ form.blood_group|add_class:"input-form" }}</div>
+                            </div>
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Staff Picture</label>
+                                <div>{{ form.inpFile|add_class:"input-form" }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Department</label>
+                                <div>{{ form.d_department|add_class:"input-form" }}</div>
+                               <!-- <select name="position" class="input-form">
+                                <option value="position-option" selected>Hospital Manager</option>
+                                <option value="position-option">Nurse</option>
+                                <option value="position-option">Doctor</option>
+                               </select> -->
+                                 
+                            </div>
+                            <div class="input-single">
+                                <label for="name" class="lblinput">Staff ID</label>
+                                <div>{{ form.staff_id|add_class:"input-form"|attr:"placeholder:Enter Staff ID No" }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <div class="input-single">
+                            <button type="submit" class="submit-btn btn-lg">CREATE ACCOUNT</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

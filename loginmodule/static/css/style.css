@@ -10,39 +10,50 @@ body {
 
 .floral-background {
     width: 480px;
-    height: 650px;
+    height: 100vh;
 }
-.background-image{
+
+.background-image {
     width: 600px;
     height: 800px;
     padding: 0;
 }
 
 .form-container {
-    margin-top: 120px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     justify-content: center;
 }
-.form-container-3{
+
+.form-container-3 {
     background-color: #fff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 24px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
+
 .logo-image {
-    width: 50%;
+    width: 160px;
+    height: 50px;
 }
 
 .greeting-bold-text {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 21px;
-    color: #505050;
+    color: #0077C8;
     margin-top: 30px;
 }
-.greeting-italic-text{
+
+.greeting-italic-text {
     font-weight: 500;
     font-size: 28px;
     font-style: italic;
@@ -64,14 +75,17 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 input[type=text] {
-   border:0;
+    border: 0;
 }
-.input-group-text{
+
+.input-group-text {
     background: #F7F6F4;
     border: none;
     border-radius: 6px;
 }
+
 .input-form {
     width: 260px;
     height: 50px;
@@ -81,12 +95,14 @@ input[type=text] {
     font-size: 14px;
     color: #888787;
     padding: 12px;
-  ;
+    ;
 }
+
 .input-form:focus {
-    outline:none !important 
+    outline: none !important
 }
-.submit-btn{
+
+.submit-btn {
     margin-top: 16px;
     background-color: #0077C8;
     width: 306px;
@@ -94,27 +110,54 @@ input[type=text] {
     border: none;
     border-radius: 6px;
     color: #fff;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
 }
-.password-reset{
-  margin-top: 12px;
+
+.password-reset {
+    margin-top: 12px;
 }
-.password-reset-link{
+
+.password-reset-link {
     font-size: 15px;
     color: #0077C8;
     text-decoration: none;
 }
-.password-reset-tag-text{
- font-size: 15px;
-color: #505050;
- margin-left: 4px;
+
+.password-reset-tag-text {
+    font-size: 15px;
+    color: #505050;
+    margin-left: 4px;
 }
+
+
+
+/* Signup */
+
+
 
 
 /* Mobile styling */
-@media only screen and (max-width: 768px) {
-.floral-background, .background-image{
-   display: none;
+@media only screen and (max-width: 820px) {
+
+    .floral-background,
+    .background-image {
+        display: none;
+    }
 }
+
+/*Very small screens */
+@media only screen and (max-width: 280px) {
+    .form-container {
+        margin: 0 6px;
+    }
+
+    .input-form {
+        width: 180px;
+        height: 50px;
+    }
+
+    .submit-btn {
+        width: 220px;
+    }
 }

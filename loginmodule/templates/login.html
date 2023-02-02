@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Management App</title>
+    <title>Clinisol</title>
     <!--boostrap link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -14,41 +14,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <!--css style link-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 </head>
 
 <body>
     <section class="main-content">
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container-fluid mx-0">
+       <div class="row">
                 <div class="col-md-6">
                     <div class="background-image-container">
-                        <img src="./images/doctor-half-cut.png" alt="floral background image" class="background-image">
+                        <img src="/static/images/floral-background.png" alt="floral background" class="floral-background">
                        </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-container">
                         <div class="info text-center">
                             <div class="logo">
-                                <img src="./images/logo.png" alt="logo" class="logo-image">
+                                <img src="/static/images/1.png" alt="logo" class="logo-image">
                             </div>
-                            <h3 class="greeting-italic-text">Welcome Back</h3>
-                            <p class="info-tagline">Kindly fill the form to access your account.</p>
+                            <h3 class="greeting-bold-text">Welcome Back</h3>
+                            <p class="info-tagline">Kindly enter the details below to access your account.</p>
                         </div>
                         <form class="form-content">
+                            {% load widget_tweaks %}
+                            {% csrf_token %}
                             <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1"><img src="./images/profile-icon.svg"
+                                <span class="input-group-text" id="basic-addon1"><img src="/static/images/profile-icon.svg"
                                         alt="password"></span>
 
-                                <input type="text" placeholder="Staff Id" class="input-form">
+                                <div>{{ form.staff_identification_no|add_class:"input-form"|attr:"placeholder:Enter Staff ID" }}</div>
+                                <!-- <input type="text" placeholder="Staff Id" class="input-form"> -->
                             </div>
                             <div class="input-group mt-2">
-                                <span class="input-group-text" id="basic-addon1"><img src="./images/password-icon.svg"
+                                <span class="input-group-text" id="basic-addon1"><img src="/static/images/password-icon.svg"
                                         alt="password"></span>
-                                <input type="password" placeholder="Password" class="input-form">
+
+                                <div>{{ form.password|add_class:"input-form"|attr:"placeholder:Enter Passwword" }}</div>
+                                <!-- <input type="password" placeholder="Password" class="input-form"> -->
                             </div>
                             <div class="input-group">
-                                <button type="submit" class="submit-btn">Login</button>
+                                <!-- <button type="submit" class="submit-btn">LOGIN</button> -->
+                                <!-- <button type="submit" class="submit-btn btn-lg">CREATE ACCOUNT</button> -->
+                                <input type="submit" class="submit-btn btn-lg" name="submit" value="submit" />
                             </div>
                             <div class="password-reset d-flex">
                                 <a href="#" class="password-reset-link">Forgot Password?</a>

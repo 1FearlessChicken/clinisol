@@ -3,7 +3,7 @@ from doctors.models import *
 from nurses.models import *
     
     
-class login_details(models.Model):
+class d_login_details(models.Model):
     staff_id_no = models.ForeignKey("general_details", on_delete=models.CASCADE)
     password = models.CharField('Password', max_length=15)
     

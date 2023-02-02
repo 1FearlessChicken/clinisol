@@ -1,18 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from doctors.form import *
-from .models import login_details
+from .models import d_login_details
 from doctors.models import*
 from .form import login_form
 
 
-def signup_view(request):
+def d_signup_view(request):
     if request.method == 'POST':
         form = general_details_d(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-        else:
-            form = general_details_d
         
         if form.is_valid():
             f_name = form.cleaned_data['firstname']
@@ -27,7 +23,7 @@ def signup_view(request):
             b_group = form.cleaned_data['blood_group']
             department = form.cleaned_data['d_department']
             s_id = form.cleaned_data['staff_id']
-            d_image = form.cleaned_data['inpFile']
+            #d_image = form.cleaned_data['inpFile']
             if d_general_details.objects.filter(staff_id = s_id):
                 varerr1="Doctor Already Exists"
                 return render(request,'signup.html',{'form':form,'varerr':varerr1})
@@ -38,9 +34,9 @@ def signup_view(request):
             s = d_general_details(firstname = f_name, lastname = l_name, other_names = o_names, gender = gender, age = age, address = address,
                                 phone_number = p_number, height = height, weight = weight, blood_group = b_group, doctor_picture = img,
                                 staff_id = s_id, d_department = department)
-            s.save
+            s.save()
             print(s_id)
-            return HttpResponseRedirect('/signup/')
+            return HttpResponseRedirect('/loginmodule/signup')
         else:
             varerr1="Input all fields"
             return render(request,'signup.html', {'form':form,'varerr':varerr1})
@@ -49,3 +45,46 @@ def signup_view(request):
         return render(request,'signup.html', {'form':form})
         
 
+# def login_view(request):
+    
+#     if request.method == 'POST':
+#         form = login_form(request.POST)
+        
+#         if form.is_valid():
+#             staffid_no = form.cleaned_data['staff_identification_no']
+#             p_word = form.cleaned_data['password']
+            
+#             if d_general_details.objects.filter(staff_id = staffid_no) and d_general_details.objects.filter(password = p_word):
+#                 print('Access Granted')
+#                 return HttpResponseRedirect('/loginmodule/signup/')
+#             else:
+#                 varerr='Wrong Credentials, Try Again'
+#                 return render(request,'login.html',{'form':form,'varerr':varerr})
+#         else:
+#             return render(request,'login.html',{'form':form})
+        
+#     else:
+#         form = login_form()
+#         return render(request,'login.html',{'form':form})
+
+
+# def login_view(request):
+    
+#     if request.method == "POST":
+#         form = login_form(request.POST)
+
+#         if form.is_valid():
+#             registrationNo = form.cleaned_data['registrationNo']
+#             print(registrationNo)
+#             if Students.objects.filter(admissionno = registrationNo):
+#                 d=Students.objects.get(admissionno = registrationNo)
+#                 return HttpResponseRedirect('students/disclaimer/%s/'%d.id)
+#             else:
+#                 varerr="invalid user"
+#                 return render(request,'students/login.html',{'form':form,'varerr':varerr})
+#         else:
+#             return render(request,'students/login.html',{'form':form})
+
+#     else:
+#         form = login_form()
+#         return render(request,'students/login.html',{'form':form})

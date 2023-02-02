@@ -4,18 +4,18 @@ from django import forms
 from django.contrib.auth.models import User
 
 gender=(
-    ('male','MALE'),
-    ('female','FEMALE'),
+    ('male','Male'),
+    ('female','Female'),
 )
 
 blood_groups=(
     ('A+','A+'),
-    ('O +','A+'),
-    ('B+','A+'),
-    ('AB+','A+'),
-    ('A-','A+'),
-    ('O-','A+'),
-    ('B-','A+'),
+    ('O +','O+'),
+    ('B+','B+'),
+    ('AB+','AB+'),
+    ('A-','A-'),
+    ('O-','O-'),
+    ('B-','B-'),
     ('AB-','AB-'),
 )
 
@@ -39,7 +39,7 @@ class DateInput(forms.DateInput):
 
 
 class general_details_d(forms.Form):
-    firstname = forms.CharField(label='FirstName', widget=forms.TextInput({ "placeholder": "First Name"}), min_length=2, max_length=15)
+    firstname = forms.CharField(label='FirstName', min_length=2, max_length=15)
     lastname = forms.CharField(label='LastName', widget=forms.TextInput({ "placeholder": "Last Name"}), min_length=2, max_length=15)
     other_names = forms.CharField(label='OtherNames', widget=forms.TextInput({ "placeholder": "Other Names"}), min_length=2, max_length=15)
     gender = forms.ChoiceField(label='gender', choices= gender)
@@ -52,6 +52,8 @@ class general_details_d(forms.Form):
     inpFile = forms.ImageField(label='patient picture',required=False)
     d_department = forms.ChoiceField(label='Doctor Department', choices= dept)
     staff_id = forms.IntegerField(label='Staff Number', widget=forms.TextInput({"placeholder": "Staff id"}))
+    #password = forms.CharField(label='Password', min_length=8, max_length=15)
+    # password2 = forms.CharField(label='Password', min_length=8, max_length=15)
 
     
     def __init__(self, *args):
