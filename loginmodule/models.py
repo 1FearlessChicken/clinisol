@@ -1,6 +1,6 @@
 from django.db import models
-from doctors.models import general_details
-from nurses.models import*
+from doctors.models import *
+from nurses.models import *
     
     
 class login_details(models.Model):

@@ -2,7 +2,7 @@ from django.db import models
 from doctors.form import dept, blood_groups, gender
 
 
-class general_details(models.Model):
+class d_general_details(models.Model):
     firstname = models.CharField('First Name', max_length=75)
     lastname = models.CharField('Last Name', max_length=75)
     other_names = models.CharField('Other Names', max_length=75)

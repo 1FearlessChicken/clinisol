@@ -38,7 +38,7 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 
-class general_details(forms.Form):
+class general_details_d(forms.Form):
     firstname = forms.CharField(label='FirstName', widget=forms.TextInput({ "placeholder": "First Name"}), min_length=2, max_length=15)
     lastname = forms.CharField(label='LastName', widget=forms.TextInput({ "placeholder": "Last Name"}), min_length=2, max_length=15)
     other_names = forms.CharField(label='OtherNames', widget=forms.TextInput({ "placeholder": "Other Names"}), min_length=2, max_length=15)
@@ -55,7 +55,7 @@ class general_details(forms.Form):
 
     
     def __init__(self, *args):
-        super(general_details, self).__init__(*args)
+        super(general_details_d, self).__init__(*args)
         self.fields['inpFile'].widget.attrs['class'] = 'file-input'
         #self.fields['admitted_session'].widget.attrs['class'] = 'form-control'
      
